@@ -101,8 +101,16 @@ function ccompile(src, dest, optimizeSwitch, copyright, optimizeOptions){
 	var destFilename = dest.match(/^.+[\\\/](.+)$/)[1],
 		jsSourceFile = closurefromCode(destFilename + ".uncompressed.js", String(readFile(src, "utf-8")));
 
-	//Set up options
-	var options = new jscomp.CompilerOptions();
+    //Set up options
+    if (optimizeOptions['language'])
+    {
+        var language = jscomp.CompilerOptions.LanguageMode.fromString(optimizeOptions['language']);
+        delete optimizeOptions['language'];
+        optimizeOptions['languageIn'] = language;
+        optimizeOptions['languageOut'] = language;
+    }
+
+    var options = new jscomp.CompilerOptions();
 	for(var k in optimizeOptions){
 		options[k] = optimizeOptions[k];
 	}
