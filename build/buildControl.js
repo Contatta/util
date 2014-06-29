@@ -96,13 +96,13 @@ define([
 			// ...are mixed one level deep; messageCategories, messages, packages, and packagePaths require special handling; all others are over-written
 			// FIXME: the only way to modify the transformJobs vector is to create a whole new vector?
 			for(var p in src){
-				if(!/paths|plugins|messages|transforms|staticHasFeatures|packages|packagePaths|defaultConfig/.test(p)){
+				if(!/paths|layers|plugins|messages|transforms|staticHasFeatures|packages|packagePaths|defaultConfig/.test(p)){
 					bc[p] = src[p];
 				}
 			}
 
 			// the one-level-deep mixers
-			["paths","plugins","transforms","staticHasFeatures"].forEach(function(p){
+			["paths","layers","plugins","transforms","staticHasFeatures"].forEach(function(p){
 				bc[p] = mix(bc[p], src[p]);
 			});
 
