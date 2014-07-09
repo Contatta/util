@@ -1,0 +1,14 @@
+{
+    "name": "util",
+    "version":"1.9.3-pre",
+    "licenses": [
+        {
+            "type": "AFLv2.1",
+            "url": "http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L43"
+        },
+        {
+            "type": "BSD",
+            "url": "http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13"
+        }
+    ]
+}
